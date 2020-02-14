@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .success {
+        color: green;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+    <title>Document</title>
+    <script>
+      function changeContent() {
+        var content = document.getElementById("demo").innerHTML;
+
+        if (content == "Hello world") {
+          alert("Hello world is exist");
+        } else {
+          alert("Hello world doesnt exist");
+        }
+        document.getElementById("demo").innerHTML = "Hello Javascript ";
+        document.getElementById("demo").setAttribute("class", "error");
+        document.getElementById("demo").style.background = "yellow";
+
+        var myPara = document.createElement("p");
+        myPara.innerHTML = "I am some text in para";
+
+        document.body.appendChild(myPara);
+      }
+    </script>
+  </head>
+  <body>
+    <h2 id="demo" class="success">Hello world</h2>
+    <button onclick="changeContent()">Change Content</button>
+  </body>
+</html>

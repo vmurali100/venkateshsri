@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var person = {
+        fname: "Murali",
+        lname: "Krishna"
+      };
+
+      //Adding a Property with .notation
+      person.email = "vmurali@gmail.com";
+
+      //Adding a Property with [] notation
+      person["city"] = "Bangalore";
+
+      //   console.log(person.email);
+
+      delete person.fname;
+
+      for (a in person) {
+        // console.log(a); //TO access only keys or prperty Names
+        console.log(person[a]); //TO access Property values or valus
+      }
+    </script>
+  </body>
+</html>
