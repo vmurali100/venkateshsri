@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">First Name :</label>
+      <input type="text" name="" id="fname" /> <br />
+
+      <label for="lname">Last Name :</label>
+      <input type="text" name="" id="lname" /> <br />
+      <label for="city">City : </label>
+      <select name="" id="city">
+        <option value="Bangalore">Bangalore</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Kochin">Kochin</option>
+      </select>
+      <br />
+
+      <button type="button" onclick="getValues()">Get Value</button>
+      <button type="button" onclick="setValues()">Set Value</button>
+    </form>
+    <hr />
+
+    <div id="demo"></div>
+    <script>
+      var myUsers = [];
+      function getValues() {
+        var obj = {
+          fname: document.getElementById("fname").value,
+          lname: document.getElementById("lname").value,
+          city: document.getElementById("city").value
+        };
+        for (a in obj) {
+          if (obj[a] == "") {
+            alert("Please enter All Values");
+            return false;
+          }
+        }
+        myUsers.push(obj);
+        displayUsers(myUsers);
+        clearForm(obj);
+        // document.getElementById("demo").innerHTML =
+        //   "First Name : " +
+        //   obj.fname +
+        //   "<br>Last Name : " +
+        //   obj.lname +
+        //   "<br>City : " +
+        //   obj.city;
+      }
+
+      function clearForm(obj) {
+        for (a in obj) {
+          document.getElementById(a).value = "";
+        }
+        // document.getElementById("fname").value = "";
+        // document.getElementById("lname").value = "";
+        // document.getElementById("city").value = "";
+      }
+      function setValues() {
+        var obj = {
+          fname: "Ram",
+          lname: "Krishna",
+          city: "Kochin"
+        };
+        document.getElementById("fname").value = obj.fname;
+        document.getElementById("lname").value = obj.lname;
+        document.getElementById("city").value = obj.city;
+      }
+
+      function displayUsers(users) {
+        var results = "";
+        document.getElementById("demo").innerHTML = "";
+        users.map(function(user) {
+          results =
+            results +
+            "First Name : " +
+            user.fname +
+            "<br>Last Name : " +
+            user.lname +
+            "<br> City :" +
+            user.city +
+            "<br><br>";
+        });
+
+        document.getElementById("demo").innerHTML = results;
+      }
+    </script>
+  </body>
+</html>

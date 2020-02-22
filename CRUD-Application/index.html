@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">First Name :</label>
+      <input type="text" name="" id="fname" /> <br />
+
+      <label for="lname">Last Name :</label>
+      <input type="text" name="" id="lname" /> <br />
+      <label for="city">City : </label>
+      <select name="" id="city">
+        <option value="Bangalore">Bangalore</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Kochin">Kochin</option>
+      </select>
+      <br />
+      <button type="button" onclick="createUser()">Create User</button>
+    </form>
+    <br />
+    <table border="1">
+      <thead>
+        <th>Fist Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody id="myTable"></tbody>
+    </table>
+    <!-- <select name="" id="mySelect"></select> -->
+    <script src="create.js"></script>
+    <script src="read.js"></script>
+    <script src="update.js"></script>
+    <script src="delete.js"></script>
+  </body>
+</html>
