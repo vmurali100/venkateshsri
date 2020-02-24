@@ -10,12 +10,14 @@ function createUser() {
   clearForm(person);
   localStorage.setItem("users", JSON.stringify(users));
   displayUsers();
+  validate();
 }
 
 function capturePerson() {
   var person = {
     fname: "",
     lname: "",
+    email: "",
     city: ""
   };
   for (a in person) {
@@ -29,3 +31,30 @@ function clearForm(obj) {
     document.getElementById(a).value = "";
   }
 }
+
+//TO get the values and Check weather user entered Valus or not
+function validate() {
+  var isInalid = false;
+  var person = capturePerson();
+  console.log(person);
+  for (a in person) {
+    if (a != "email") {
+      if (person[a] == "") {
+        isInalid = true;
+      }
+    } else {
+      var emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+      if (!emailPattern.test(person[a])) {
+        isInalid = true;
+      }
+    }
+  }
+
+  if (isInalid) {
+    document.getElementById("create").setAttribute("disabled", true);
+  } else {
+    document.getElementById("create").removeAttribute("disabled");
+  }
+}
+
+validate();

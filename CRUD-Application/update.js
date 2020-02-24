@@ -19,4 +19,5 @@ function updateUser() {
   localStorage.setItem("users", JSON.stringify(users));
   displayUsers();
   clearForm(person);
+  validate();
 }
