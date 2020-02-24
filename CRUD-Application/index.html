@@ -19,7 +19,17 @@
         <option value="Kochin">Kochin</option>
       </select>
       <br />
-      <button type="button" onclick="createUser()">Create User</button>
+      <button type="button" onclick="createUser()" id="create">
+        Create User
+      </button>
+      <button
+        type="button"
+        onclick="updateUser()"
+        style="display: none;"
+        id="update"
+      >
+        Update
+      </button>
     </form>
     <br />
     <table border="1">

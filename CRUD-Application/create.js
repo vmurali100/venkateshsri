@@ -7,6 +7,7 @@ function createUser() {
   //   };
   var person = capturePerson();
   users.push(person);
+  clearForm(person);
   localStorage.setItem("users", JSON.stringify(users));
   displayUsers();
 }
@@ -21,4 +22,10 @@ function capturePerson() {
     person[a] = document.getElementById(a).value;
   }
   return person;
+}
+
+function clearForm(obj) {
+  for (a in obj) {
+    document.getElementById(a).value = "";
+  }
 }

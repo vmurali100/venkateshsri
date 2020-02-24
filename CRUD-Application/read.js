@@ -7,7 +7,7 @@ function displayUsers() {
   //     document.getElementById("mySelect").appendChild(myOption);
   //   });
 
-  allUsers.map(function(user) {
+  allUsers.map(function(user, index) {
     var myTr = document.createElement("tr");
     for (a in user) {
       var myTd = document.createElement("td");
@@ -20,8 +20,10 @@ function displayUsers() {
 
     var editBtn = document.createElement("button");
     editBtn.innerHTML = "Edit";
+    editBtn.setAttribute("onclick", "editUser(" + index + ")");
     var deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "Delete";
+    deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")");
     myEdit.appendChild(editBtn);
     deleteTd.appendChild(deleteBtn);
 
@@ -30,3 +32,4 @@ function displayUsers() {
     document.getElementById("myTable").appendChild(myTr);
   });
 }
+displayUsers();
