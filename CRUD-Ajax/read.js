@@ -11,10 +11,7 @@ function getAllusers(displayUsers) {
     }
   };
 
-  getInfo.open(
-    "GET",
-    "http://www.filltext.com/?rows=5&fname={firstName}&lname={lastName}&pretty=true"
-  );
+  getInfo.open("GET", "http://localhost:3000/users");
   getInfo.send();
 }
 
@@ -56,21 +53,30 @@ var somePromise = function() {
 
     getInfo.onreadystatechange = function() {
       if (getInfo.readyState == 4 && getInfo.status == 200) {
-        // users = JSON.parse(getInfo.response);
+        users = JSON.parse(getInfo.response);
         // success(users);
         // failure();
 
-        return users;
+        // return users;
+        success(users);
       }
     };
 
-    getInfo.open(
-      "GET",
-      "http://www.filltext.com/?rows=5&fname={firstName}&lname={lastName}&pretty=true"
-    );
+    getInfo.open("GET", "http://localhost:3000/users/");
     getInfo.send();
   });
 };
+
+// somePromise().then(res => {
+//   console.log(res);
+// });
+async function getUsers() {
+  users = await somePromise();
+  displayUsers();
+}
+
+getUsers();
+// function getAllusers() {}
 
 // somePromise()
 //   .then(function() {

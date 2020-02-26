@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "fname": "Murali",
+      "lname": "Planty",
+      "email": "vmurali100@gmail.com",
+      "city": "Bangalore",
+      "id": 1
+    },
+    {
+      "fname": "Venkatesh",
+      "lname": "Sri",
+      "email": "venkatesh@gmailc.com",
+      "city": "Bangalore",
+      "id": 2
+    },
+    {
+      "fname": "Venkatesh",
+      "lname": "Sri Ram",
+      "email": "venkatesh@gmailc.com",
+      "city": "Bangalore",
+      "id": 3
+    }
+  ]
+}

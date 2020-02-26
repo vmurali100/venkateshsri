@@ -8,18 +8,19 @@
   <body>
     <form>
       <label for="fname">First Name :</label>
-      <input type="text" name="" id="fname" onkeyup="validate()" /> <br />
+      <input type="text" name="" id="fname" /> <br />
       <label for="lname">Last Name :</label>
-      <input type="text" name="" id="lname" onkeyup="validate()" /> <br />
+      <input type="text" name="" id="lname" /> <br />
       <label for="email">Email : </label>
-      <input type="text" id="email" onkeyup="validate()" /> <br />
+      <input type="text" id="email" /> <br />
       <label for="city">City : </label>
-      <select name="" id="city" onchange="validate()">
+      <select name="" id="city">
         <option value="">Select City</option>
         <option value="Bangalore">Bangalore</option>
         <option value="Chennai">Chennai</option>
         <option value="Kochin">Kochin</option>
       </select>
+      <input type="text" id="id" hidden />
       <br />
       <button type="button" onclick="createUser()" id="create">
         Create User
@@ -40,6 +41,7 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>City</th>
+        <th>Id</th>
         <th>Edit</th>
         <th>Delete</th>
       </thead>
