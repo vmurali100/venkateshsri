@@ -1,11 +1,12 @@
 var users = [];
-function getAllusers(displayUsers) {
+function getAllusers() {
   var getInfo = new XMLHttpRequest();
 
   getInfo.onreadystatechange = function() {
     if (getInfo.readyState == 4 && getInfo.status == 200) {
       users = JSON.parse(getInfo.response);
       console.log(users);
+      localStorage.setItem("users", JSON.stringify(users));
       //   calling a argument function as callback
       displayUsers();
     }
@@ -29,12 +30,18 @@ function displayUsers() {
     var myEdit = document.createElement("td");
     var deleteTd = document.createElement("td");
 
+    var anch1 = document.createElement("a");
+    anch1.setAttribute("href", "edit.html?=" + user.id);
+
+    anch1.innerHTML = "Edit";
+
     var editBtn = document.createElement("button");
-    editBtn.innerHTML = "Edit";
+    editBtn.appendChild(anch1);
+
     editBtn.setAttribute("onclick", "editUser(" + index + ")");
     var deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "Delete";
-    deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")");
+    // deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")");
     myEdit.appendChild(editBtn);
     deleteTd.appendChild(deleteBtn);
 
@@ -75,7 +82,7 @@ async function getUsers() {
   displayUsers();
 }
 
-getUsers();
+getAllusers();
 // function getAllusers() {}
 
 // somePromise()

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sayHello() {
+        // alert("Welcome to my website");
+        console.log("Welcome to Javascript");
+      }
+
+      //   setTimeout(function() {
+      //     sayHello();
+      //   }, 5000);
+      var inter = setInterval(function() {
+        sayHello();
+      }, 5000);
+
+      setTimeout(function() {
+        clearInterval(inter);
+      }, 15000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome to Edit Page</h1>
+    <form>
+      <label for="fname">First Name :</label>
+      <input type="text" name="" id="fname" onkeyup="validate()" /> <br />
+      <label for="lname">Last Name :</label>
+      <input type="text" name="" id="lname" onkeyup="validate()" /> <br />
+      <label for="email">Email : </label>
+      <input type="text" id="email" onkeyup="validate()" /> <br />
+      <label for="city">City : </label>
+      <select name="" id="city" onchange="validate()">
+        <option value="">Select City</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Kochin">Kochin</option>
+      </select>
+      <input type="text" id="id" hidden />
+      <br />
+
+      <button type="button" onclick="updateUser()" id="update">
+        Update
+      </button>
+    </form>
+    <script src="create.js"></script>
+    <script>
+      var url = window.location.href;
+      i = Number(url.substring(url.indexOf("=") + 1));
+      var users = JSON.parse(localStorage.getItem("users"));
+      var user = users.find(person => {
+        return person.id == i;
+      });
+      for (a in user) {
+        document.getElementById(a).value = user[a];
+      }
+
+      function updateUser() {
+        var user = captureUser();
+        user.id = i;
+        var update = new XMLHttpRequest();
+        update.onreadystatechange = function() {
+          if (update.readyState == 4 && update.status == 201) {
+            console.log("user Updated");
+          }
+        };
+
+        update.open("PATCH", "http://localhost:3000/users/" + user.id);
+        update.setRequestHeader("Content-Type", "application/json");
+        update.send(JSON.stringify(user));
+      }
+    </script>
+  </body>
+</html>

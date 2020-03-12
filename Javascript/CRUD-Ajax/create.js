@@ -29,3 +29,26 @@ function sendDataToServer(user) {
   sendInfo.setRequestHeader("Content-Type", "application/json");
   sendInfo.send(JSON.stringify(user));
 }
+
+function validate() {
+  let isInvalid = false;
+  var person = captureUser();
+  console.log(person);
+  for (a in person) {
+    if (a != "id") {
+      if (person[a] == "") {
+        isInvalid = true;
+      }
+    }
+  }
+
+  if (isInvalid) {
+    if (document.getElementById("create")) {
+      document.getElementById("create").setAttribute("disabled", true);
+    }
+  } else {
+    document.getElementById("create").removeAttribute("disabled");
+  }
+}
+
+validate();
