@@ -8,10 +8,17 @@
       "id": 1
     },
     {
-      "fname": "Murali VMKR",
-      "lname": "Planty Krishna",
-      "email": "vmurali100@gmail.com",
-      "city": "Bangalore",
+      "fname": "Ram",
+      "lname": "Ravi",
+      "email": "Ram@gamil.com",
+      "city": "Blr",
+      "id": 2
+    },
+    {
+      "fname": "Sam",
+      "lname": "Ravi Kumar",
+      "email": "RamKumar@gamil.com",
+      "city": "Chennai",
       "id": 3
     }
   ]

@@ -27,9 +27,16 @@ export default class Create extends Component {
             }}
           />
           <br />
-          <button type="button" onClick={handleSubmit}>
-            Create User
-          </button>
+          {!this.props.isEdit && (
+            <button type="button" onClick={handleSubmit}>
+              Create User
+            </button>
+          )}
+          {this.props.isEdit && (
+            <button onClick={this.props.updateUser} type="button">
+              Update User
+            </button>
+          )}
         </form>
       </div>
     );

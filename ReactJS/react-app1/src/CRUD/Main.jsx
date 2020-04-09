@@ -8,7 +8,9 @@ export default class Main extends Component {
 
     this.state = {
       person: { fname: "", lname: "" },
-      users: []
+      users: [],
+      isEdit: false,
+      index: null
     };
   }
 
@@ -29,6 +31,26 @@ export default class Main extends Component {
     });
   };
 
+  handleDelete = i => {
+    let users = this.state.users;
+    users.splice(i, 1);
+    this.setState({ users });
+  };
+
+  updateUser = () => {
+    console.log("update User Called");
+    let users = this.state.users;
+    users[this.state.index] = this.state.person;
+    this.setState({ users }, () => {
+      this.clearForm();
+      localStorage.setItem("users", JSON.stringify(this.state.users));
+      this.setState({ isEdit: false });
+    });
+  };
+  handleEdit = (user, i) => {
+    let person = Object.assign({}, user);
+    this.setState({ person, isEdit: true, index: i });
+  };
   clearForm = () => {
     let person = { fname: "", lname: "" };
     this.setState({ person });
@@ -36,8 +58,9 @@ export default class Main extends Component {
   componentDidMount() {
     console.log("Our Componnet is ready Now");
     let users = JSON.parse(localStorage.getItem("users"));
-    console.log(users);
-    this.setState({ users });
+    if (users !== null) {
+      this.setState({ users });
+    }
   }
   render() {
     return (
@@ -47,8 +70,14 @@ export default class Main extends Component {
           user={this.state.person}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          isEdit={this.state.isEdit}
+          updateUser={this.updateUser}
         />
-        <Read users={this.state.users} />
+        <Read
+          users={this.state.users}
+          handleDelete={this.handleDelete}
+          handleEdit={this.handleEdit}
+        />
       </div>
     );
   }

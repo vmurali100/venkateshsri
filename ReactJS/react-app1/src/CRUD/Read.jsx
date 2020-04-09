@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Read extends Component {
   render() {
-    const { users } = this.props;
+    const { users, handleDelete, handleEdit } = this.props;
     return (
       <div>
         <table border="1">
@@ -21,10 +21,22 @@ export default class Read extends Component {
                   <td>{user.fname}</td>
                   <td>{user.lname}</td>
                   <td>
-                    <button>Edit</button>
+                    <button
+                      onClick={() => {
+                        handleEdit(user, i);
+                      }}
+                    >
+                      Edit
+                    </button>
                   </td>
                   <td>
-                    <button>Delete</button>
+                    <button
+                      onClick={() => {
+                        handleDelete(i);
+                      }}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );
